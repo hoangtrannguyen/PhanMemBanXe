@@ -25,17 +25,43 @@ namespace PhanMemBanXe
             this.role = role;
         }
 
-        public void taoTK() {
-            Console.Write("Nhap ten nguoi dung :");
-            Console.Write("Nhap tuoi :");
-            Console.Write("Nhap so CCCD :");
-            Console.Write("Nhap ten SDT :");
-            Console.Write("Nhap ten dang nhap :");
-            Console.Write("Nhap mat khau :");
+        public void taoTK()
+        {
+            Console.WriteLine("Nhap ten nguoi dung :");
+            ten = Console.ReadLine();
+            Console.WriteLine("Nhap so CCCD :");
+            id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Nhap ten SDT :");
+            sdt = int.Parse(Console.ReadLine());
+            Console.WriteLine("Nhap ten dang nhap :");
+            tenDN = Console.ReadLine();
+            Console.WriteLine("Nhap mat khau :");
+            pass = Console.ReadLine();
+            Console.WriteLine("Nhap role :");
+            role = bool.Parse(Console.ReadLine());
         }
         public void danhSach() { }
-        public void doiMk() { }
-        public void suaTt() { }
+        public void doiMk()
+        {
+            string mkc;
+            Console.WriteLine("Nhap vao mat khau cu: ");
+            mkc = Console.ReadLine();
+            if (mkc == pass)
+            {
+                Console.WriteLine("Ban da nhap dung mat khau cu, gio ban hay nhap mat khau moi!");
+                pass = Console.ReadLine();
+                Console.WriteLine("Doi mat khau thanh cong");
+            }
+            else
+            {
+                Console.WriteLine("Ban da nhap sai mat khau cu, vui long nhap lai!");
+                Console.ReadKey();
+                doiMk();
+            }
+        }
+        public void suaTt()
+        {
+        }
         public void xoaTk() { }
         public void thongTin() { }
     }

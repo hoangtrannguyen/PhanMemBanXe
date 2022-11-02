@@ -44,11 +44,11 @@ namespace PhanMemBanXe
             {
                 Xe selectXe = new Xe();
                 int i = 1;
-                foreach (Xe sv in listXe)
+                foreach (Xe xe in listXe)
                 {
                     if (i == a)
                     {
-                        selectXe = Xe;
+                        selectXe = xe;
                         return selectXe;
                     }
                     ++i;
