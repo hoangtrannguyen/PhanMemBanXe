@@ -26,12 +26,12 @@ namespace PhanMemBanXe
         }
 
         public void taoTK() {
-            Console.Write("Nhap ten nguoi dung");
-            Console.Write("Nhap tuoi");
-            Console.Write("Nhap so CCCD");
-            Console.Write("Nhap ten nguoi dung");
-            Console.Write("Nhap ten nguoi dung");
-            Console.Write("Nhap ten nguoi dung");
+            Console.Write("Nhap ten nguoi dung :");
+            Console.Write("Nhap tuoi :");
+            Console.Write("Nhap so CCCD :");
+            Console.Write("Nhap ten SDT :");
+            Console.Write("Nhap ten dang nhap :");
+            Console.Write("Nhap mat khau :");
         }
         public void danhSach() { }
         public void doiMk() { }
