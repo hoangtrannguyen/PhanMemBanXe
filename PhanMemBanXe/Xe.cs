@@ -28,8 +28,13 @@ namespace PhanMemBanXe
             this.namLanBanh = namLanBanh;
             this.chuXe = chuXe;
         }
-
-
+        public Xe()
+        { }
+        public void inThongTin()
+        {
+            Console.WriteLine("{0, -10} {1, -26} {2, -12} {3, -27} {4, -10} {5, -15} {6,-10}",
+            tenXe, mau, soCho, bienKiemSoat, namLanBanh, chuXe, tinhTrangXe);
+        }
         public void themXe(NguoiChoThue chuXe)
         {
             Console.WriteLine("Nhap ten xe");
