@@ -8,7 +8,19 @@ namespace PhanMemBanXe
 {
     internal class ListYKien
     {
-        Lazy<ListYKien> listYKien = new Lazy<ListYKien>();
-
+        List<YKienDanhGia> listYKien = new List<YKienDanhGia>();
+        public void themYKien(string IDChu, string IDKhach, string soKiemSoatXe)
+        {
+            YKienDanhGia yKien = new YKienDanhGia();
+            yKien.themYKien( IDChu,  IDKhach,  soKiemSoatXe);
+            listYKien.Add(yKien);
+        }
+        public void showYKien()
+        {
+            foreach (YKienDanhGia yKien in listYKien)
+            {
+                yKien.showYKien();
+            }
+        }
     }
 }

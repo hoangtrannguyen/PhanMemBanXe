@@ -32,5 +32,15 @@ namespace PhanMemBanXe
             Console.WriteLine("Nhap noi dung ");
             noiDung = Console.ReadLine();
         }
+        public void showYKien()
+        {
+            Console.WriteLine("==============");
+            Console.WriteLine("So kiem soat xe : {0} ",SoKiemSoatXe);
+            Console.WriteLine("So CMND chu : {0}",CMNDChuXe); 
+            Console.WriteLine("So sao :",SoSao); 
+            Console.WriteLine("Danh gia :",NoiDung); 
+            Console.WriteLine("Nguoi danh gia :",CMNDKhachHang); 
+            Console.WriteLine("==============");
+        }
     }
 }
