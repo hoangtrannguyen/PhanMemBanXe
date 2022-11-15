@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace PhanMemBanXe
 {
-    internal class HoaDon
+    internal class ListYKien
     {
+        Lazy<ListYKien> listYKien = new Lazy<ListYKien>();
+
     }
 }

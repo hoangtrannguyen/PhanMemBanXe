@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PhanMemBanXe
 {
-    internal class ListNguoiThue
+    internal class ListNguoiThue : ListTaiKhoan
     {
-        private List<Xe> listXe = new List<Xe>();
-        private NguoiChoThue nguoiChu;
+              
+        
     }
 }

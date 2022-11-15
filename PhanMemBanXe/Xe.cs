@@ -8,55 +8,89 @@ namespace PhanMemBanXe
 {
     internal class Xe
     {
-        private string tenXe;
-        private string mau;
+        private string loaiXe;
+        private string hangXe;
         private int soCho;
-        private string bienKiemSoat;
-        private int soKm;
-        private int tinhTrangXe;
+        private string bienKiemSoatXe;
         private int namLanBanh;
-        private NguoiChoThue chuXe;
+        private int soKm;
+        private string cMNDChuXe;
+        private bool coBaoHiem;
+        private int phanTramBaoHiem;
+        private int giaThue;
 
-        public Xe(string tenXe, string mau, int soCho, string bienKiemSoat, int soKm, int tinhTrangXe, int namLangBanh, NguoiChoThue chuXe)
-        {
-            this.tenXe = tenXe;
-            this.mau = mau;
-            this.soCho = soCho;
-            this.bienKiemSoat = bienKiemSoat;
-            this.soKm = soKm;
-            this.tinhTrangXe = tinhTrangXe;
-            this.namLanBanh = namLanBanh;
-            this.chuXe = chuXe;
-        }
         public Xe()
-        { }
-        public void inThongTin()
         {
-            Console.WriteLine("{0, -10} {1, -26} {2, -12} {3, -27} {4, -10} {5, -15} {6,-10}",
-            tenXe, mau, soCho, bienKiemSoat, namLanBanh, chuXe, tinhTrangXe);
         }
-        public void themXe(NguoiChoThue chuXe)
+
+        public Xe(string loaiXe, string hangXe, int soCho, string bienKiemSoatXe, int namLanBanh, int soKm, string cMNDChuXe, bool coBaoHiem, int phanTramBaoHiem, int giaThue)
         {
-            Console.WriteLine("Nhap ten xe");
-            tenXe = Console.ReadLine();
-            Console.WriteLine("Nhap mau xe");
-            mau = Console.ReadLine();
-            Console.WriteLine("Nhap so cho");
-            soCho = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Nhap so KM cua xe");
-            soKm = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Nhap nam lan banh");
-            namLanBanh = Int32.Parse(Console.ReadLine());
-            this.chuXe = chuXe;
-            tinhTrangXe = 0;
+            LoaiXe = loaiXe;
+            HangXe = hangXe;
+            SoCho = soCho;
+            BienKiemSoatXe = bienKiemSoatXe;
+            NamLanBanh = namLanBanh;
+            SoKM = soKm;
+            CMNDChuXe = cMNDChuXe;
+            CoBaoHiem = coBaoHiem;
+            PhanTramBaoHiem = phanTramBaoHiem;
+            GiaThue = giaThue;
         }
-        public void xoaXe()
+
+        public string LoaiXe { get { return loaiXe; } set { loaiXe = value; } }
+        public string HangXe { get { return hangXe; } set { hangXe = value; } }
+        public int SoCho { get { return soCho; } set { soCho = value; } }        
+        public string BienKiemSoatXe { get { return bienKiemSoatXe; } set { bienKiemSoatXe = value; } }
+        public int NamLanBanh { get { return namLanBanh; } set { namLanBanh = value; } }
+        public int SoKM { get { return soKm; } set { soKm = value; } }
+        public string CMNDChuXe { get { return cMNDChuXe; } set { cMNDChuXe = value; } }
+        public bool CoBaoHiem { get { return coBaoHiem; } set { coBaoHiem = value; } }
+        public int PhanTramBaoHiem { get { return phanTramBaoHiem;} set { phanTramBaoHiem= value; } }
+        public int GiaThue { get { return giaThue; } set { giaThue = value; } }
+
+        public void ThongTinXe()
         {
+            Console.WriteLine("=========================");
+            Console.WriteLine("Loai xe: " + loaiXe);
+            Console.WriteLine("Hang xe:" + hangXe);
+            Console.WriteLine("So cho: " + soCho);
+            Console.WriteLine("Bien kiem soat: " + bienKiemSoatXe);
+            Console.WriteLine("Nam lan banh: " + namLanBanh);
+            Console.WriteLine("So kilomet da chay: " + soKm);
+            Console.WriteLine("CMND cua chu xe: " + cMNDChuXe);
+            Console.WriteLine("Co bao hiem khong ?"+ coBaoHiem);
+            Console.WriteLine("Phan tram bao hiem chi tra: " + phanTramBaoHiem);
+            Console.WriteLine("Gia thue xe theo thang: " + giaThue);
 
         }
-        public void suaXe()
-        {
 
-        }
+        public Xe TaoDoiTuongXe()
+        {
+            Console.WriteLine("Nhap loai xe: ");
+            this.loaiXe = Console.ReadLine();
+            Console.WriteLine("Nhap hang xe:");
+            this.hangXe = Console.ReadLine();
+            Console.WriteLine("Nhap so cho: ");
+            this.soCho = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Nhap bien kiem soat: ");
+            this.bienKiemSoatXe = Console.ReadLine();
+            Console.WriteLine("Nhap nam lan banh: ");
+            this.namLanBanh = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Nhap so kilomet da chay: ");
+            this.soKm = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Nhap CMND cua chu xe: ");
+            this.cMNDChuXe = Console.ReadLine();
+            Console.WriteLine("Co bao hiem khong ?");
+            this.coBaoHiem = Convert.ToBoolean(Console.ReadLine());
+            Console.WriteLine("Nhap phan tram bao hiem chi tra: ");
+            this.phanTramBaoHiem = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Nhap gia thue xe theo thang: ");
+            this.giaThue = Convert.ToInt32(Console.ReadLine());
+
+            //Tao 1 obj cua TaiKhoan tu du lieu tren
+            Xe objXe = new Xe(loaiXe,hangXe,soCho,bienKiemSoatXe,namLanBanh,soKm,cMNDChuXe,coBaoHiem,phanTramBaoHiem,giaThue);
+            //Tra ve obj đó
+            return objXe;
+        }   
     }
 }

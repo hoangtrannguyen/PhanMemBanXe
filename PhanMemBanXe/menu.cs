@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace PhanMemBanXe
 {
-    internal class menu
+    internal class Menu
     {
-        public static void dangNhap()
-        {
-            ListXe SV = new ListXe();
-            ListNguoiChoThue GV = new ListNguoiChoThue();
-            ListNguoiThue MH = new ListNguoiThue();
-/*            MH.dataTest();
-            SV.dataTest();
-            GV.dataTest();*/
+        ListTaiKhoan objlistTaiKhoan = new ListTaiKhoan();
+        ListXe objlistXe = new ListXe(); 
+        public void Menu1()
+        {            
             bool test = true;
             while (test)
             {
@@ -24,68 +20,170 @@ namespace PhanMemBanXe
                 Console.WriteLine("********************MENU********************");
                 Console.WriteLine("** 1. Dang nhap                           **");
                 Console.WriteLine("** 2. Tao tai khoan                       **");
-                Console.WriteLine("** 0. Thoat                               **");
+                Console.WriteLine("** 3. Hien danh sach tai khoan            **");
+                Console.WriteLine("** 4. Thoat                               **");
                 Console.WriteLine("********************************************");
                 int key = Convert.ToInt32(Console.ReadLine());
                 switch (key)
                 {
                     case 1:
                         Console.Clear();
-                        SV.nhapSV();
-                        Console.WriteLine("------NHAP THANH CONG------\n" +
-                                          " Nhan nut bat ki de tro ve");
+                        string role = objlistTaiKhoan.DangNhap();
+                        switch (role)
+                        {
+                            case "Chu Xe":
+                                MenuNguoiChoThue();
+                                break;
+                            case "Nguoi Thue":
+                                MenuNguoiThue();
+                                break;
+                            default:
+                                break;
+
+                        }
+
                         Console.ReadKey();
                         break;
                     case 2:
                         Console.Clear();
-                        GV.nhapGV();
-                        Console.WriteLine("------NHAP THANH CONG------\n" +
-                                          " Nhan nut bat ki de tro ve");
-                        Console.ReadKey();
+                        TaiKhoan tkNew = new TaiKhoan();
+                        objlistTaiKhoan.ThemTK(tkNew);
                         break;
                     case 3:
                         Console.Clear();
-                        SV.xuatSV();
-                        Console.WriteLine();
-                        Console.WriteLine("---NHAN NUT BAT KI DE TRO VE---");
+                        objlistTaiKhoan.HienDanhSach();
+                        Console.ReadKey();
+                        break;
+                    case 4:
+                        test = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        public void MenuNguoiChoThue()
+        {
+            bool test = true;
+            while (test)
+            {
+                Console.Clear();
+                Console.WriteLine("\nCHUONG TRINH QUAN LY THUE XE C#");
+                Console.WriteLine("********************MENU********************");
+                Console.WriteLine("** 1. Hien danh sach nguoi cho thue       **");
+                Console.WriteLine("** 2. Them tai khoan nguoi cho thue       **");
+                Console.WriteLine("** 3. Xoa tai khoan nguoi cho thue        **");
+                Console.WriteLine("** 4. Sua tai khoan nguoi cho thue        **");
+                Console.WriteLine("** 5. Them xe cho thue                    **");
+                Console.WriteLine("** 6. Xoa xe  cho thue                    **");
+                Console.WriteLine("** 7. Sua xe  cho thue                    **");
+                Console.WriteLine("** 8. Hien danh sach xe da cho thue       **");
+                Console.WriteLine("** 9. Quay lai trang chu                  **");
+                Console.WriteLine("** 10. Thoat                              **");
+                Console.WriteLine("********************************************");
+                int key = Convert.ToInt32(Console.ReadLine());
+                switch (key)
+                {
+                    case 1:
+                        Console.Clear();
+                        objlistTaiKhoan.HienDanhSachNguoiChoThue();
+                        Console.ReadKey();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        TaiKhoan tkNew = new TaiKhoan();
+                        objlistTaiKhoan.ThemTKNguoiChoThue(tkNew);
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.WriteLine("Id tai khoan muon xoa:");
+                        int cmndXoa = Convert.ToInt32(Console.ReadLine());
+                        objlistTaiKhoan.XoaTaiKhoan(cmndXoa);
                         Console.ReadKey();
                         break;
                     case 4:
                         Console.Clear();
-                        GV.xuatGV();
-                        Console.WriteLine();
-                        Console.WriteLine("---NHAN NUT BAT KI DE TRO VE---");
+                        Console.WriteLine("Id tai khoan muon sua:");
+                        int cmndSua = Convert.ToInt32(Console.ReadLine());
+                        objlistTaiKhoan.SuaTaiKhoan(cmndSua);
                         Console.ReadKey();
                         break;
                     case 5:
                         Console.Clear();
-                        SV.xuatSV();
-                        Console.WriteLine("---Chon sinh vien so---");
-                        int key2 = Int32.Parse(Console.ReadLine());
-                        sinhVien selectSV = SV.laySinhVien(key2);
-                        menu2(selectSV, MH);
+                        Xe xe = new Xe();
+                        objlistXe.ThemXe(xe);
                         break;
                     case 6:
                         Console.Clear();
-                        GV.xuatGV();
-                        Console.WriteLine("---Chon giao vien so---");
-                        int key3 = Int32.Parse(Console.ReadLine());
-                        giaoVien selectGV = GV.layGiaoVien(key3);
-                        menu3(selectGV, MH);
+                        Console.WriteLine("Bien so xe muon xoa:");
+                        string biensoXoa = Console.ReadLine();
+                        objlistXe.XoaXe(biensoXoa);
+                        Console.ReadKey();
                         break;
                     case 7:
                         Console.Clear();
-                        MH.xuatMH();
-                        Console.WriteLine("---NHAN NUT BAT KI DE TRO VE---");
+                        Console.WriteLine("Bien so xe muon sua:");
+                        string biensoSua = Console.ReadLine();
+                        objlistXe.SuaThongTinXe(biensoSua);
                         Console.ReadKey();
                         break;
-                    case 0:
-                        return;
+                    case 8:
+                        Console.Clear();
+                        objlistXe.HienDanhSachXe();
+                        Console.ReadKey();
+                        break;
+                    case 9:
+                        Console.Clear();
+                        Menu1();
+                        break;
+                    case 10:
+                        test = false;
+                        break;
+                    default:
+                        test = false;
+                        break;
+                }
+            }
+        }
+        public void MenuNguoiThue()
+        {
+
+            ListTaiKhoan objlistTaiKhoan = new ListTaiKhoan();
+            bool test = true;
+            while (test)
+            {
+                Console.Clear();
+                Console.WriteLine("\nCHUONG TRINH QUAN LY THUE XE C#");
+                Console.WriteLine("********************MENU********************");
+                Console.WriteLine("** 1. Hien danh sach nguoi thue           **");
+                Console.WriteLine("** 2. Tao tai khoan nguoi thue            **");
+                Console.WriteLine("** 3. Hien danh sach tai khoan            **");
+                Console.WriteLine("** 4. Thoat                               **");
+                Console.WriteLine("********************************************");
+                int key = Convert.ToInt32(Console.ReadLine());
+                switch (key)
+                {
+                    case 1:
+                        Console.Clear();
+                        objlistTaiKhoan.HienDanhSachNguoiThue();
+                        Console.ReadKey();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        TaiKhoan tkNew = new TaiKhoan();
+                        objlistTaiKhoan.ThemTKNguoiThue(tkNew);
+                        break;
+                    case 3:
+                        Console.Clear();
+                        objlistTaiKhoan.HienDanhSach();
+                        Console.ReadKey();
+                        break;
+                    case 4:
+                        test = false;
+                        break;
                     default:
                         break;
-
                 }
-
             }
         }
     }

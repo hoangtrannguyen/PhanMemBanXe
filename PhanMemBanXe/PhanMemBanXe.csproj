@@ -43,17 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiPhiPhatSinh.cs" />
+    <Compile Include="ListYKien.cs" />
+    <Compile Include="ListHopDong.cs" />
     <Compile Include="ListNguoiThue.cs" />
-    <Compile Include="menu.cs" />
+    <Compile Include="ListTaiKhoan.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="ListXe.cs" />
     <Compile Include="NguoiThue.cs" />
     <Compile Include="NguoiChoThue.cs" />
+    <Compile Include="UuDai.cs" />
     <Compile Include="Xe.cs" />
     <Compile Include="TaiKhoan.cs" />
     <Compile Include="ListNguoiChoThue.cs" />
-    <Compile Include="HoaDon.cs" />
+    <Compile Include="HopDong.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YKienDanhGia.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

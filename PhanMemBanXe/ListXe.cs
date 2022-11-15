@@ -8,53 +8,90 @@ namespace PhanMemBanXe
 {
     internal class ListXe
     {
-            private List<Xe> listXe = new List<Xe>();
-            private NguoiChoThue nguoiChu;
+        public ListXe()
+        {
 
-            public void themXe()
+        }
+
+        public List<Xe> listXe = new List<Xe>
+        {
+            //new Xe(LoaiXe,HangXe,SoCho,BienKiemsoat,namLanBanh,SoKM,cmndChuXe,BaoHiem,PhanTrmBaoHiem,GiaThue)
+            new Xe("a","a",5,"1",2,1000,"1",true,5,1000000),
+            new Xe("b","b",8,"2",2,500,"2",true,10,1500000),
+            new Xe("c","c",15,"3",3,3000,"3",false,15,3000000),
+            new Xe("d","d",20,"4",4,2000,"4",true,20,5000000),
+            new Xe("e","e",20,"5",3,1500,"5",true,20,5000000),
+        };
+
+
+        public void ThemXe(Xe xe)
+        {
+            Xe objXe = new Xe();
+            xe=objXe.TaoDoiTuongXe();
+            listXe.Add(xe);
+
+        }
+
+        public void HienDanhSachXe()
+        {
+            foreach (Xe objXe in listXe)
             {
-                Xe xe = new Xe();
-                xe.themXe(nguoiChu);
-                listXe.Add(xe);
-
+                objXe.ThongTinXe();
             }
-        /* public void dataTest()
-         {
-             listXe.Add(new Xe(20110686, "Hoang Tran Nguyen", 17, 11, 2002, "quan 9,TP Thu Duc", 7, 2020, "CLC"));
-             listXe.Add(new Xe(20110886, "Hoang Cong Nguyen", 18, 12, 2002, "quan 8,TP Thu Duc", 10, 2021, "CLC"));
-             listXe.Add(new Xe(20110986, "Hoang Chien Nguyen", 19, 10, 2012, "quan 1,TP Thu Duc", 3, 2023, "Dai tra"));
-             listXe.Add(new Xe(19133019, "Vo Thanh Dat", 05, 06, 2001, "Tp Thu Duc", 7.5, 2019, "Dai tra"));
-             listXe.Add(new Xe(19133027, "Nguyen Pham Duy Khiem", 26, 02, 2001, "Tp Thu Duc", 6.5, 2019, "CLC"));
-         }*/
-       /* (string tenXe, string mau, int soCho, string bienKiemSoat, int soKm, int tinhTrangXe, int namLangBanh, NguoiChoThue chuXe)*/
-            public void hienXe()
+        }
+        public void XoaXe(string bienKiemSoatXe_in)
+        {
+            int count = 0;
+            foreach (Xe xe in listXe.ToList())
             {
-                int i = 1;
-                Console.WriteLine("{0, -10} {1, -26} {2, -12} {3, -27} {4, -10} {5, -15} {6,-10}",
-                "Ten xe", "Mau", "SoCho", "Bien Kiem Soat", "Nam lan banh", "Chu xe","Tinh trang xe");
-                foreach (Xe xe in listXe)
+                if (xe.BienKiemSoatXe == bienKiemSoatXe_in)
                 {
-                    Console.Write("{0,-2}.", i);
-                    xe.inThongTin();
-                    Console.WriteLine();
-                    ++i;
+                    listXe.Remove(xe);
+                    count++;
                 }
             }
-            public Xe laySinhVien(int a)
+            if (count == 0)
             {
-                Xe selectXe = new Xe();
-                int i = 1;
-                foreach (Xe xe in listXe)
-                {
-                    if (i == a)
-                    {
-                        selectXe = xe;
-                        return selectXe;
-                    }
-                    ++i;
-                }
-                return null;
+                Console.WriteLine("Khong co tai khoan nay");
             }
+            else
+            {
+                Console.WriteLine("Xoa tai khoan thanh cong");
+            }
+        }
+        public void SuaThongTinXe(string bienKiemSoatXe_in)
+        {
 
+            foreach (Xe xe in listXe)
+            {
+                if (xe.BienKiemSoatXe == bienKiemSoatXe_in)
+                {
+                    Console.WriteLine("Nhap lai loai xe: ");
+                    xe.LoaiXe=Console.ReadLine();
+                    Console.WriteLine("Nhap lai hang xe:");
+                    xe.HangXe = Console.ReadLine();
+                    Console.WriteLine("Nhap lai so cho: ");
+                    xe.SoCho = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Nhap lai bien kiem soat: ");
+                    xe.BienKiemSoatXe = Console.ReadLine();
+                    Console.WriteLine("Nhap lai nam lan banh: ");
+                    xe.NamLanBanh = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Nhap lai so kilomet da chay: ");
+                    xe.SoKM = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Nhap lai CMND cua chu xe: ");
+                    xe.CMNDChuXe = Console.ReadLine();
+                    Console.WriteLine("Co bao hiem khong ?");
+                    xe.CoBaoHiem = Convert.ToBoolean(Console.ReadLine());
+                    Console.WriteLine("Nhap lai phan tram bao hiem chi tra: ");
+                    xe.PhanTramBaoHiem = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Nhap lai gia thue xe theo thang: ");
+                    xe.GiaThue = Convert.ToInt32(Console.ReadLine());
+                }
+                else
+                {
+                    Console.WriteLine("Khong co tai khoan nay");
+                }
+            }
+        }
     }
 }

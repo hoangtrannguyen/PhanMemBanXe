@@ -9,60 +9,107 @@ namespace PhanMemBanXe
 {
     internal class TaiKhoan
     {
-        protected string tenDN;
-        protected string pass;
-        protected string ten;
-        protected int id;
-        protected int sdt;
-        protected bool role;
+        private string tenDN;
+        private string pass;
+        private string ten;
+        private int id;//cMND
+        private string sdt;
+        private string role;
 
-        public TaiKhoan(string tenDN, string pass, string ten, int id, int sdt, bool role)
+
+
+        public string TenDN { get { return tenDN; } set { tenDN = value; } }
+        public string Pass { get { return pass; } set { pass = value; } }
+        public string Ten { get { return ten; } set { ten = value; } }
+        public int ID { get { return id; } set { id = value; } }
+        public string Sdt { get { return sdt; } set { sdt = value; } }
+
+        public string Role { get { return role; } set { role = value; } }
+        public TaiKhoan()
         {
-            this.tenDN = tenDN;
-            this.pass = pass; this.ten = ten;
-            this.id = id;
-            this.sdt = sdt;
-            this.role = role;
         }
 
-        public void taoTK()
+        public TaiKhoan(string tenDN, string pass, string ten, int id, string sdt, string role)
+        {
+            TenDN = tenDN;
+            Pass = pass;
+            Ten = ten;
+            ID = id;
+            Sdt = sdt;
+            Role = role;            
+        }
+
+        //=========================================Tao tai khoan=================
+        public TaiKhoan taoTK()
         {
             Console.WriteLine("Nhap ten nguoi dung :");
-            ten = Console.ReadLine();
+            this.ten = Console.ReadLine();
             Console.WriteLine("Nhap so CCCD :");
-            id = int.Parse(Console.ReadLine());
+            this.id = int.Parse(Console.ReadLine());
             Console.WriteLine("Nhap ten SDT :");
-            sdt = int.Parse(Console.ReadLine());
+            this.sdt = Console.ReadLine();
             Console.WriteLine("Nhap ten dang nhap :");
-            tenDN = Console.ReadLine();
+            this.tenDN = Console.ReadLine();
             Console.WriteLine("Nhap mat khau :");
-            pass = Console.ReadLine();
+            this.pass = Console.ReadLine();
             Console.WriteLine("Nhap role :");
-            role = bool.Parse(Console.ReadLine());
+            this.role = Console.ReadLine();
+            //Tao 1 obj cua TaiKhoan tu du lieu tren
+            TaiKhoan objTK=new TaiKhoan(tenDN,pass,ten,id,sdt,role);
+            //Tra ve obj đó
+            return objTK;
         }
-        public void danhSach() { }
-        public void doiMk()
+
+        public TaiKhoan taoTKNguoiChoThue()
         {
-            string mkc;
-            Console.WriteLine("Nhap vao mat khau cu: ");
-            mkc = Console.ReadLine();
-            if (mkc == pass)
-            {
-                Console.WriteLine("Ban da nhap dung mat khau cu, gio ban hay nhap mat khau moi!");
-                pass = Console.ReadLine();
-                Console.WriteLine("Doi mat khau thanh cong");
-            }
-            else
-            {
-                Console.WriteLine("Ban da nhap sai mat khau cu, vui long nhap lai!");
-                Console.ReadKey();
-                doiMk();
-            }
+            Console.WriteLine("Nhap ten nguoi dung :");
+            this.ten = Console.ReadLine();
+            Console.WriteLine("Nhap so CCCD :");
+            this.id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Nhap ten SDT :");
+            this.sdt = Console.ReadLine();
+            Console.WriteLine("Nhap ten dang nhap :");
+            this.tenDN = Console.ReadLine();
+            Console.WriteLine("Nhap mat khau :");
+            this.pass = Console.ReadLine();
+            this.role = "Chu Xe";
+            //Tao 1 obj cua TaiKhoan tu du lieu tren
+            TaiKhoan objTK = new TaiKhoan(tenDN, pass, ten, id, sdt, role);
+            //Tra ve obj đó
+            return objTK;
         }
-        public void suaTt()
+        public TaiKhoan taoTKNguoiThue()
         {
+            Console.WriteLine("Nhap ten nguoi dung :");
+            this.ten = Console.ReadLine();
+            Console.WriteLine("Nhap so CCCD :");
+            this.id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Nhap ten SDT :");
+            this.sdt = Console.ReadLine();
+            Console.WriteLine("Nhap ten dang nhap :");
+            this.tenDN = Console.ReadLine();
+            Console.WriteLine("Nhap mat khau :");
+            this.pass = Console.ReadLine();
+            this.role = "Nguoi Thue";
+            //Tao 1 obj cua TaiKhoan tu du lieu tren
+            TaiKhoan objTK = new TaiKhoan(tenDN, pass, ten, id, sdt, role);
+            //Tra ve obj đó
+            return objTK;
         }
-        public void xoaTk() { }
-        public void thongTin() { }
+
+        //=========================================Tao tai khoan=================
+
+        public void ThongTinTaiKhoan() {
+            Console.WriteLine("=========================");
+            Console.WriteLine("Ten dang nhap: " + tenDN);
+            Console.WriteLine("Mat khau: " + pass);
+            Console.WriteLine("Ho va ten: " + ten);
+            Console.WriteLine("CCCD: " + id);
+            Console.WriteLine("So dien thoai: " + sdt);
+            Console.WriteLine("Role: " + role);
+        }
+        
+        
+               
     }
 }
