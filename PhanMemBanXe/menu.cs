@@ -9,7 +9,9 @@ namespace PhanMemBanXe
     internal class Menu
     {
         ListTaiKhoan objlistTaiKhoan = new ListTaiKhoan();
-        ListXe objlistXe = new ListXe(); 
+        ListXe objlistXe = new ListXe();
+        ListHopDong objlistHopDong = new ListHopDong();
+        ListYKien objlistYKien = new ListYKien();
         public void Menu1()
         {            
             bool test = true;
@@ -158,7 +160,11 @@ namespace PhanMemBanXe
                 Console.WriteLine("** 1. Hien danh sach nguoi thue           **");
                 Console.WriteLine("** 2. Tao tai khoan nguoi thue            **");
                 Console.WriteLine("** 3. Hien danh sach tai khoan            **");
-                Console.WriteLine("** 4. Thoat                               **");
+                Console.WriteLine("** 4. Them y kien                         **");
+                Console.WriteLine("** 5. Hien thi y kien                     **");
+                Console.WriteLine("** 6. Them hop dong                       **");
+                Console.WriteLine("** 7. Hien thi hop dong                   **");                              
+                Console.WriteLine("** 8. Thoat                               **");
                 Console.WriteLine("********************************************");
                 int key = Convert.ToInt32(Console.ReadLine());
                 switch (key)
@@ -179,6 +185,26 @@ namespace PhanMemBanXe
                         Console.ReadKey();
                         break;
                     case 4:
+                        Console.Clear();
+                        //objlistYKien.themYKien();
+                        Console.ReadKey();
+                        break;
+                    case 5:
+                        Console.Clear();
+                        objlistYKien.showYKien();
+                        Console.ReadKey();
+                        break;
+                    case 6:
+                        Console.Clear();
+                        //objlistHopDong.themHopDong();
+                        Console.ReadKey();
+                        break;
+                    case 7:
+                        Console.Clear();
+                        objlistHopDong.showHD();
+                        Console.ReadKey();
+                        break;
+                    case 8:
                         test = false;
                         break;
                     default:
