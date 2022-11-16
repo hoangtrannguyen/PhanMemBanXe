@@ -93,5 +93,16 @@ namespace PhanMemBanXe
                 }
             }
         }
+        public Xe ChonXe(int i)
+        {
+            Xe sltXe = new Xe();
+            int j = 0;
+            foreach (Xe lXe in listXe)
+            {
+                if (i == j) return lXe;
+                else j++;
+            }
+            return sltXe;
+        }
     }
 }

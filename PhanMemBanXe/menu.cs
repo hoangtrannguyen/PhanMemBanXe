@@ -9,7 +9,7 @@ namespace PhanMemBanXe
     internal class Menu
     {
         ListTaiKhoan objlistTaiKhoan = new ListTaiKhoan();
-        ListXe objlistXe = new ListXe();
+        public ListXe objlistXe = new ListXe();
         ListHopDong objlistHopDong = new ListHopDong();
         ListYKien objlistYKien = new ListYKien();
         public void Menu1()
@@ -196,7 +196,11 @@ namespace PhanMemBanXe
                         break;
                     case 6:
                         Console.Clear();
-                        //objlistHopDong.themHopDong();
+                        objlistXe.HienDanhSachXe();
+                        Console.WriteLine("Chon xe so : ");
+                        int selectNum = Int32.Parse(Console.ReadLine());
+                        Xe selectXe = objlistXe.ChonXe(selectNum);
+                        objlistHopDong.themHopDong(selectXe);
                         Console.ReadKey();
                         break;
                     case 7:
